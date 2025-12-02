@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Configuration
-@EnableWebSocket   // ✅ THIS WAS MISSING
+@EnableWebSocket   
 public class WebSocketConfig implements WebSocketConfigurer {
 
     private final ChatHandler chatHandler;

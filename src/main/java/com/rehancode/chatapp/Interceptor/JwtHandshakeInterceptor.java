@@ -1,8 +1,9 @@
 package com.rehancode.chatapp.Interceptor;
 
-import com.rehancode.chatapp.JWT.JwtService;
-import com.rehancode.chatapp.UserDetailsService.CustomUserDetailsService;
+import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -12,10 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 import org.springframework.web.util.UriComponentsBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.util.Map;
+import com.rehancode.chatapp.JWT.JwtService;
+import com.rehancode.chatapp.UserDetailsService.CustomUserDetailsService;
 
 @Component
 public class JwtHandshakeInterceptor implements HandshakeInterceptor {
@@ -96,59 +96,3 @@ logger.warn("WebSocket Handshake Rejected | Reason: Invalid Token");
                                Exception exception) {}
 }
 
-
-// public class JwtHandshakeInterceptor implements HandshakeInterceptor {
-
-//     private final JwtService jwtService;
-
-//     public JwtHandshakeInterceptor(JwtService jwtService) {
-//         this.jwtService = jwtService;
-//     }
-
-//     @Override
-//     public boolean beforeHandshake(ServerHttpRequest request,
-//                                    ServerHttpResponse response,
-//                                    WebSocketHandler wsHandler,
-//                                    Map<String, Object> attributes) {
-
-//         String token = UriComponentsBuilder.fromUri(request.getURI())
-//                 .build()
-//                 .getQueryParams()
-//                 .getFirst("token");
-
-//         if (token == null || token.isEmpty()) {
-//             reject(response);
-//             System.out.println("WebSocket connection rejected: missing token");
-//             return false;
-//         }
-
-//         try {
-//             String username = jwtService.extractUsername(token);
-//             if (username != null && jwtService.isTokenValid(token, username)) {
-//                 attributes.put("username", username);
-//                 System.out.println("WebSocket handshake allowed for user: " + username);
-//                 return true;
-//             }
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         }
-
-//         reject(response);
-//         System.out.println("WebSocket connection rejected: invalid token");
-//         return false;
-//     }
-
-//     private void reject(ServerHttpResponse response) {
-//         if (response instanceof ServletServerHttpResponse servlet) {
-//             servlet.getServletResponse().setStatus(HttpStatus.FORBIDDEN.value());
-//         } else {
-//             response.setStatusCode(HttpStatus.FORBIDDEN);
-//         }
-//     }
-
-//     @Override
-//     public void afterHandshake(ServerHttpRequest request,
-//                                ServerHttpResponse response,
-//                                WebSocketHandler wsHandler,
-//                                Exception exception) {}
-// }
