@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -15,10 +16,14 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rehancode.chatapp.Entity.Chat;
 import com.rehancode.chatapp.Repository.ChatRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Component
 public class ChatHandler extends TextWebSocketHandler {
+     private static final Logger logger =
+            LoggerFactory.getLogger(ChatHandler.class);
 
     private final ChatRepository chatRepository;
     private static final List<WebSocketSession> sessions = new ArrayList<>();
@@ -38,6 +43,7 @@ public class ChatHandler extends TextWebSocketHandler {
     for (WebSocketSession s : sessions) {
         if (s.isOpen()) s.sendMessage(new TextMessage(json));
     }
+      logger.info("Online Users Updated: {}", onlineUsers);
 }
 
     @Override
@@ -46,6 +52,7 @@ public class ChatHandler extends TextWebSocketHandler {
         sessions.add(session);
         userSessionMap.put(username, session);
         System.out.println(username + " connected");
+          logger.info("User Connected: {}", username);
          broadcastOnlineUsers(); // send updated list
     }
 
@@ -57,6 +64,7 @@ protected void handleTextMessage(WebSocketSession session, TextMessage message) 
 
     String sender = (String) session.getAttributes().get("username");
     if(sender == null){
+         logger.warn("Connection closed due to missing username");
         session.close();
         return;
     }
@@ -65,18 +73,26 @@ protected void handleTextMessage(WebSocketSession session, TextMessage message) 
     String type = msg.getOrDefault("type", "global");
     String recipient = msg.get("recipient");
 
+       logger.debug("Message Received | From: {} | Type: {} | To: {} | Msg: {}",
+                sender, type, recipient, content);
+
     Chat chat = new Chat();
     chat.setSender(sender);
     chat.setMessage(content);
-    // chat.setRecipient(recipient);
-    // chat.setType(type);
+    chat.setRecipient(recipient);
+    chat.setType(type);
     chat.setTimestamp(LocalDateTime.now());
     chatRepository.save(chat);
+
+       logger.info("Message Saved | From: {} | Type: {} | To: {}",
+                sender, type, recipient);
 
     if ("private".equalsIgnoreCase(type) && recipient != null) {
         WebSocketSession recipientSession = userSessionMap.get(recipient);
 
         if (recipientSession == null || !recipientSession.isOpen()) {
+              logger.warn("Private Message Failed | Recipient Offline | From: {} | To: {}",
+                        sender, recipient);
             Map<String, Object> errorPayload = new HashMap<>();
             errorPayload.put("type", "error");
             errorPayload.put("message", "User is offline");
@@ -99,6 +115,9 @@ protected void handleTextMessage(WebSocketSession session, TextMessage message) 
         senderPayload.put("message", content);
 
         session.sendMessage(new TextMessage(mapper.writeValueAsString(senderPayload)));
+           logger.info("Private Message Sent | From: {} | To: {} | Msg: {}",
+                    sender, recipient, content);
+
 
     } else {
         synchronized (sessions) {
@@ -115,6 +134,8 @@ protected void handleTextMessage(WebSocketSession session, TextMessage message) 
                 }
             }
         }
+           logger.info("Global Message Broadcast | From: {} | Msg: {}",
+                    sender, content);
     }
 }
 
@@ -125,6 +146,7 @@ protected void handleTextMessage(WebSocketSession session, TextMessage message) 
         sessions.remove(session);
         userSessionMap.remove(username);
         System.out.println(username + " disconnected");
+           logger.info("User Disconnected: {} | Status: {}", username, status);
            broadcastOnlineUsers();
     }
 }

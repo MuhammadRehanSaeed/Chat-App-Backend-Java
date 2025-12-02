@@ -16,11 +16,16 @@ import com.rehancode.chatapp.DTO.RegisterResponse;
 import com.rehancode.chatapp.Exceptions.ApiResponse;
 import com.rehancode.chatapp.Service.UserService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
 
     private final UserService userService;
+       private static final Logger logger =
+            LoggerFactory.getLogger(UserController.class);
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -29,7 +34,12 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<ApiResponse<RegisterResponse>> registerUser(@RequestBody RegisterRequest req) {
+          logger.info("Register Request Received | Username: {} | Email: {}",
+                req.getUsername(), req.getEmail());
+
         RegisterResponse response = userService.registerUser(req);
+         logger.info("User Registered Successfully | Username: {}",
+                req.getUsername());
         ApiResponse<RegisterResponse> apiResponse = ApiResponse.<RegisterResponse>builder()
                 .timestamp(LocalDateTime.now())
                 .status(HttpStatus.OK.value())
@@ -43,7 +53,13 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<LoginResponse>> loginUser(@RequestBody LoginRequest req) {
+        
+        logger.info("Login Attempt | Username: {}",
+                req.getUsername());
         LoginResponse response = userService.loginUser(req);
+          logger.info("Login Successful | Username: {}",
+                req.getUsername());
+
         ApiResponse<LoginResponse> apiResponse = ApiResponse.<LoginResponse>builder()
                 .timestamp(LocalDateTime.now())
                 .status(HttpStatus.OK.value())

@@ -24,6 +24,8 @@ public class Chat {
     private Long id;
 
     private String sender;
+    private String recipient;   // ✅ NEW
+    private String type;      
     private String message;
     private LocalDateTime timestamp;
 

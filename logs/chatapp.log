@@ -1,0 +1,127 @@
+2025-12-02 11:54:55 | INFO  | c.r.chatapp.ChatappApplication | Starting ChatappApplication using Java 17.0.12 with PID 3500 (D:\spring-boot-project1\chatapp\target\classes started by Crown Tech in D:\spring-boot-project1\chatapp)
+2025-12-02 11:54:55 | DEBUG | c.r.chatapp.ChatappApplication | Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-12-02 11:54:55 | INFO  | c.r.chatapp.ChatappApplication | No active profile set, falling back to 1 default profile: "default"
+2025-12-02 11:54:58 | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate | Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-02 11:54:58 | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate | Finished Spring Data repository scanning in 133 ms. Found 2 JPA repository interfaces.
+2025-12-02 11:55:00 | INFO  | o.s.boot.tomcat.TomcatWebServer | Tomcat initialized with port 8080 (http)
+2025-12-02 11:55:00 | INFO  | o.a.coyote.http11.Http11NioProtocol | Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-02 11:55:00 | INFO  | o.a.catalina.core.StandardService | Starting service [Tomcat]
+2025-12-02 11:55:00 | INFO  | o.a.catalina.core.StandardEngine | Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-02 11:55:01 | INFO  | o.s.b.w.c.s.WebApplicationContextInitializer | Root WebApplicationContext: initialization completed in 5028 ms
+2025-12-02 11:55:01 | INFO  | o.h.jpa.internal.util.LogHelper | HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-02 11:55:01 | INFO  | org.hibernate.Version | HHH000412: Hibernate ORM core version 7.1.8.Final
+2025-12-02 11:55:02 | INFO  | o.s.o.j.p.SpringPersistenceUnitInfo | No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-02 11:55:03 | INFO  | com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Starting...
+2025-12-02 11:55:03 | INFO  | com.zaxxer.hikari.pool.HikariPool | HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23e9dd78
+2025-12-02 11:55:03 | INFO  | com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Start completed.
+2025-12-02 11:55:03 | WARN  | org.hibernate.orm.deprecation | HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-02 11:55:03 | INFO  | o.hibernate.orm.connections.pooling | HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/chat_app?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: chat_app/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-02 11:55:06 | INFO  | o.h.e.t.j.p.i.JtaPlatformInitiator | HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-02 11:55:06 | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-02 11:55:06 | INFO  | o.s.d.j.r.q.QueryEnhancerFactories | Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-02 11:55:07 | DEBUG | com.rehancode.chatapp.JWT.JwtFilter | Filter 'jwtFilter' configured for use
+2025-12-02 11:55:07 | INFO  | o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer | Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-02 11:55:07 | WARN  | o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer | Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-12-02 11:55:07 | INFO  | c.r.c.Configuration.WebSocketConfig | Registering WebSocket Handler at /ws/chat
+2025-12-02 11:55:07 | INFO  | c.r.c.Configuration.WebSocketConfig | WebSocket Handler Registered Successfully
+2025-12-02 11:55:07 | WARN  | o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-02 11:55:09 | INFO  | o.a.coyote.http11.Http11NioProtocol | Starting ProtocolHandler ["http-nio-8080"]
+2025-12-02 11:55:09 | INFO  | o.s.boot.tomcat.TomcatWebServer | Tomcat started on port 8080 (http) with context path '/'
+2025-12-02 11:55:09 | INFO  | c.r.chatapp.ChatappApplication | Started ChatappApplication in 15.127 seconds (process running for 16.523)
+2025-12-02 11:55:43 | INFO  | o.a.c.c.C.[Tomcat].[localhost].[/] | Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-02 11:55:43 | INFO  | o.s.web.servlet.DispatcherServlet | Initializing Servlet 'dispatcherServlet'
+2025-12-02 11:55:43 | INFO  | o.s.web.servlet.DispatcherServlet | Completed initialization in 6 ms
+2025-12-02 11:55:45 | INFO  | com.rehancode.chatapp.JWT.JwtFilter | JWT validated successfully | Username: rehan | Path: /api/auth/register
+2025-12-02 11:55:45 | INFO  | c.r.c.Controller.UserController | Register Request Received | Username: sarmad | Email: sarmad@gmail.com
+2025-12-02 11:55:45 | INFO  | c.r.chatapp.Service.UserService | Attempting to register user: sarmad
+2025-12-02 11:55:47 | INFO  | c.r.chatapp.Service.UserService | User registered successfully: sarmad
+2025-12-02 11:55:47 | INFO  | c.r.c.Controller.UserController | User Registered Successfully | Username: sarmad
+2025-12-02 11:55:55 | INFO  | com.rehancode.chatapp.JWT.JwtFilter | JWT validated successfully | Username: rehan | Path: /api/auth/register
+2025-12-02 11:55:55 | INFO  | c.r.c.Controller.UserController | Register Request Received | Username: sarmad | Email: null
+2025-12-02 11:55:55 | INFO  | c.r.chatapp.Service.UserService | Attempting to register user: sarmad
+2025-12-02 11:55:55 | WARN  | c.r.chatapp.Service.UserService | Registration failed: missing fields for user sarmad
+2025-12-02 11:56:03 | INFO  | com.rehancode.chatapp.JWT.JwtFilter | JWT validated successfully | Username: rehan | Path: /api/auth/login
+2025-12-02 11:56:04 | INFO  | c.r.c.Controller.UserController | Login Attempt | Username: sarmad
+2025-12-02 11:56:04 | INFO  | c.r.chatapp.Service.UserService | Login attempt for user: sarmad
+2025-12-02 11:56:05 | INFO  | c.r.chatapp.Service.UserService | Login successful for user: sarmad
+2025-12-02 11:56:05 | INFO  | c.r.c.Controller.UserController | Login Successful | Username: sarmad
+2025-12-02 11:56:14 | DEBUG | com.rehancode.chatapp.JWT.JwtFilter | JWT filter skipped for WS path: /ws/chat
+2025-12-02 11:56:14 | INFO  | c.r.c.I.JwtHandshakeInterceptor | WebSocket Handshake Started | URI: http://localhost:8080/ws/chat?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhhbiIsImlhdCI6MTc2NDY1MzUxNywiZXhwIjoxNzY0NzM5OTE3fQ.6eP7O54mkdrKCOY85Eg1s4xps6e72BHoo27TXh1CZF8
+2025-12-02 11:56:14 | DEBUG | c.r.c.I.JwtHandshakeInterceptor | WebSocket Token Extracted | Username: rehan
+2025-12-02 11:56:14 | INFO  | c.r.c.I.JwtHandshakeInterceptor | WebSocket Handshake Allowed | User: rehan
+2025-12-02 11:56:14 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | User Connected: rehan
+2025-12-02 11:56:14 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Online Users Updated: [rehan]
+2025-12-02 11:56:23 | DEBUG | com.rehancode.chatapp.JWT.JwtFilter | JWT filter skipped for WS path: /ws/chat
+2025-12-02 11:56:23 | INFO  | c.r.c.I.JwtHandshakeInterceptor | WebSocket Handshake Started | URI: http://localhost:8080/ws/chat?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYXJtYWQiLCJpYXQiOjE3NjQ2NTg1NjUsImV4cCI6MTc2NDc0NDk2NX0.ggsAVs9w_6VaylZHMT15rBgjTTc7hSCupZWSGXph33U
+2025-12-02 11:56:23 | DEBUG | c.r.c.I.JwtHandshakeInterceptor | WebSocket Token Extracted | Username: sarmad
+2025-12-02 11:56:23 | INFO  | c.r.c.I.JwtHandshakeInterceptor | WebSocket Handshake Allowed | User: sarmad
+2025-12-02 11:56:23 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | User Connected: sarmad
+2025-12-02 11:56:23 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Online Users Updated: [sarmad, rehan]
+2025-12-02 11:56:29 | DEBUG | c.r.chatapp.ChatHandler.ChatHandler | Message Received | From: rehan | Type: private | To: sarmad | Msg: public
+2025-12-02 11:56:29 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Message Saved | From: rehan | Type: private | To: sarmad
+2025-12-02 11:56:29 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Private Message Sent | From: rehan | To: sarmad | Msg: public
+2025-12-02 11:56:50 | DEBUG | c.r.chatapp.ChatHandler.ChatHandler | Message Received | From: sarmad | Type: private | To: rehan | Msg: public
+2025-12-02 11:56:50 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Message Saved | From: sarmad | Type: private | To: rehan
+2025-12-02 11:56:50 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Private Message Sent | From: sarmad | To: rehan | Msg: public
+2025-12-02 11:56:59 | ERROR | o.s.w.s.h.ExceptionWebSocketHandlerDecorator | Closing session due to exception for StandardWebSocketSession[id=477a276a-853b-8d3d-6905-4aca56bda243, uri=ws://localhost:8080/ws/chat?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYXJtYWQiLCJpYXQiOjE3NjQ2NTg1NjUsImV4cCI6MTc2NDc0NDk2NX0.ggsAVs9w_6VaylZHMT15rBgjTTc7hSCupZWSGXph33U]
+com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 3, column: 1]
+	at com.fasterxml.jackson.core.JsonParser._constructReadException(JsonParser.java:2675)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:743)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddName(ReaderBasedJsonParser.java:1909)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextFieldName(ReaderBasedJsonParser.java:939)
+	at com.fasterxml.jackson.databind.deser.std.MapDeserializer._readAndBindStringKeyMap(MapDeserializer.java:608)
+	at com.fasterxml.jackson.databind.deser.std.MapDeserializer.deserialize(MapDeserializer.java:449)
+	at com.fasterxml.jackson.databind.deser.std.MapDeserializer.deserialize(MapDeserializer.java:32)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3772)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3740)
+	at com.rehancode.chatapp.ChatHandler.ChatHandler.handleTextMessage(ChatHandler.java:63)
+	at org.springframework.web.socket.handler.AbstractWebSocketHandler.handleMessage(AbstractWebSocketHandler.java:43)
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75)
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56)
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58)
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleTextMessage(StandardWebSocketHandlerAdapter.java:113)
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:84)
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$3.onMessage(StandardWebSocketHandlerAdapter.java:81)
+	at org.apache.tomcat.websocket.WsFrameBase.sendMessageText(WsFrameBase.java:392)
+	at org.apache.tomcat.websocket.server.WsFrameServer.sendMessageText(WsFrameServer.java:130)
+	at org.apache.tomcat.websocket.WsFrameBase.processDataText(WsFrameBase.java:486)
+	at org.apache.tomcat.websocket.WsFrameBase.processData(WsFrameBase.java:286)
+	at org.apache.tomcat.websocket.WsFrameBase.processInputBuffer(WsFrameBase.java:129)
+	at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:85)
+	at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:184)
+	at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:164)
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:152)
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:60)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-12-02 11:56:59 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | User Disconnected: sarmad | Status: CloseStatus[code=1011, reason=null]
+2025-12-02 11:56:59 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Online Users Updated: [rehan]
+2025-12-02 11:57:03 | DEBUG | com.rehancode.chatapp.JWT.JwtFilter | JWT filter skipped for WS path: /ws/chat
+2025-12-02 11:57:03 | INFO  | c.r.c.I.JwtHandshakeInterceptor | WebSocket Handshake Started | URI: http://localhost:8080/ws/chat?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYXJtYWQiLCJpYXQiOjE3NjQ2NTg1NjUsImV4cCI6MTc2NDc0NDk2NX0.ggsAVs9w_6VaylZHMT15rBgjTTc7hSCupZWSGXph33U
+2025-12-02 11:57:03 | DEBUG | c.r.c.I.JwtHandshakeInterceptor | WebSocket Token Extracted | Username: sarmad
+2025-12-02 11:57:03 | INFO  | c.r.c.I.JwtHandshakeInterceptor | WebSocket Handshake Allowed | User: sarmad
+2025-12-02 11:57:03 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | User Connected: sarmad
+2025-12-02 11:57:03 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Online Users Updated: [sarmad, rehan]
+2025-12-02 11:57:04 | DEBUG | c.r.chatapp.ChatHandler.ChatHandler | Message Received | From: sarmad | Type: global | To: null | Msg: public
+2025-12-02 11:57:04 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Message Saved | From: sarmad | Type: global | To: null
+2025-12-02 11:57:04 | INFO  | c.r.chatapp.ChatHandler.ChatHandler | Global Message Broadcast | From: sarmad | Msg: public
