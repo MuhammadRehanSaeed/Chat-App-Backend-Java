@@ -34,3 +34,4 @@
 2025-12-15 15:12:22 | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean | Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-15 15:12:22 | INFO  | com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Shutdown initiated...
 2025-12-15 15:12:22 | INFO  | com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Shutdown completed.
+2025-12-15 15:12:22 | INFO  | com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Shutdown completed.
