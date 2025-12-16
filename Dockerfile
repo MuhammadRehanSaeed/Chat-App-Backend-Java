@@ -1,5 +1,5 @@
 FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+WORKDIR /app
+COPY target/spring-boot-app.jar spring-boot-app.jar
+EXPOSE 8080
+CMD ["java", "-jar", "spring-boot-app.jar"]
